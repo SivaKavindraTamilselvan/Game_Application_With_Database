@@ -14,7 +14,6 @@ public partial class Game
 {
     public GameModel AddGameService(Users user)
     {
-        //IRepository<int, GameModel> gameRepo = new GameRepository();
         GameModel gameModel = new GameModel();
         gameModel.userId = user.userId;
         gameModel.max_attempt = max_attempt;

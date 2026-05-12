@@ -12,7 +12,7 @@ public class Program
 {
     static void Main(string[] args)
     {
-        
+
         Env.Load();
 
         UserRepository userRepository = new UserRepository();
@@ -20,10 +20,12 @@ public class Program
         UserService userService = new UserService(userRepository);
 
         GameRepository gameRepository = new GameRepository();
+        
+        WordGuessHistoryRepository wordGuessHistoryRepository = new WordGuessHistoryRepository();
 
-        GameService gameService = new GameService(gameRepository);
+        GameService gameService = new GameService(gameRepository, wordGuessHistoryRepository);
 
-        UserFunctions userFunctions = new UserFunctions(userService,gameService);
+        UserFunctions userFunctions = new UserFunctions(userService, gameService);
 
         while (true)
         {
@@ -51,7 +53,7 @@ public class Program
                         {
                             Console.WriteLine("Login Panel and Play the Game");
                             var user = userFunctions.LoginUser();
-                            if(user == null)
+                            if (user == null)
                             {
                                 throw new PasswordIncorrectException();
                             }

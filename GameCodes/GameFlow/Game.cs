@@ -77,11 +77,7 @@ public partial class Game
                     guessed_word = guessed_word.ToUpper();
                     validator.ValidateFunction(guessed_word, guessed_words);
 
-                    WordGuessHistoryRepository wordGuessHistoryRepository = new WordGuessHistoryRepository();
-                    WordGuessHistory wordGuessHistory = new WordGuessHistory();
-                    wordGuessHistory.gameId = game.gameId;
-                    wordGuessHistory.guessedWord = guessed_word;
-                    var history = wordGuessHistoryRepository.Create(wordGuessHistory);
+                    var history = AddWordGuessService(game,guessed_word);
                     Console.WriteLine(history);
 
                     //print the feedback and check
