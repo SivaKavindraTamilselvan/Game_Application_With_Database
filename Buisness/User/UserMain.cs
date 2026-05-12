@@ -8,8 +8,10 @@ public class UserService
         Console.WriteLine("Enter Your Name");
         string name = Console.ReadLine() ?? string.Empty;
         Console.WriteLine("Enter Your Email");
-        string email = Console.ReadLine() ?? string.Empty;
+        string email = inputsCheck.EmailInputs();
         Console.WriteLine("Enter Your Password");
         string password = Console.ReadLine() ?? string.Empty;
+        Console.WriteLine("Enter Your Role");
+        string role = Console.ReadLine() ?? string.Empty;
     }
 }
