@@ -41,6 +41,7 @@ public class Program
                         {
                             throw new UserNotFoundException();
                         }
+                        user.UserHistory(loginUser);
                         Game game = new Game();
                         game.Start(loginUser);
                         break;

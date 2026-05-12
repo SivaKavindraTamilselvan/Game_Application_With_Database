@@ -48,9 +48,9 @@ public class UserRepository : AbstractRepository<int, Users>
         return null!;
     }
 
-    public Users? LoginUser(string email,string password)
+    public Users? LoginUser(string email, string password)
     {
-        string query  = $"SELECT * FROM Users WHERE Email = '{email}' AND Password = '{password}'";
+        string query = $"SELECT * FROM Users WHERE Email = '{email}' AND Password = '{password}'";
         NpgsqlCommand command = new NpgsqlCommand(query, connection);
         try
         {
@@ -81,4 +81,66 @@ public class UserRepository : AbstractRepository<int, Users>
         }
         return null;
     }
+
+    public List<UserHistoryDto> UserHistory(string email)
+    {
+        List<UserHistoryDto> historyList = new List<UserHistoryDto>();
+        string query = $"SELECT u.userId,u.Name,u.Email,g.gameId,g.hiddenword,g.max_attempt,g.createdAt,w.guessedword,s.score,s.attempt,s.status from Users u JOIN GameModel g ON u.userId = g.userId JOIN WordGuessHistory w ON w.gameId = g.gameId JOIN ScoresModel s ON s.gameId = g.gameId WHERE Email = '{email}'";
+        NpgsqlCommand command = new NpgsqlCommand(query, connection);
+        try
+        {
+            connection.Open();
+
+            NpgsqlDataReader reader = command.ExecuteReader();
+
+            Dictionary<int, UserHistoryDto> gameMap = new Dictionary<int, UserHistoryDto>();
+
+            while (reader.Read())
+            {
+                int gameId = Convert.ToInt32(reader["gameId"]);
+
+                if (!gameMap.ContainsKey(gameId))
+                {
+                    UserHistoryDto dto = new UserHistoryDto();
+
+                    dto.userId = Convert.ToInt32(reader["userId"]);
+
+                    dto.Name = reader["Name"].ToString() ?? "";
+
+                    dto.Email = reader["Email"].ToString() ?? "";
+
+                    dto.gameId = gameId;
+
+                    dto.hiddenWord = reader["hiddenword"].ToString() ?? "";
+
+                    dto.max_attempt = Convert.ToInt32(reader["max_attempt"]);
+
+                    dto.createdAt = Convert.ToDateTime(reader["createdAt"]);
+
+                    dto.score = Convert.ToInt32(reader["score"]);
+
+                    dto.attempt = Convert.ToInt32(reader["attempt"]);
+
+                    dto.status = reader["status"].ToString() ?? "";
+                    gameMap.Add(gameId, dto);
+                }
+
+                string guessed = reader["guessedword"].ToString() ?? "";
+
+                gameMap[gameId].guessedWord.Add(guessed);
+            }
+            historyList = gameMap.Values.ToList();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+        finally
+        {
+            connection.Close();
+        }
+
+        return historyList;
+    }
+
 }

@@ -43,4 +43,14 @@ public class UserService
         Console.WriteLine(user);
         return user;
     }
+    public List<UserHistoryDto> UserHistory(Users user)
+    {
+        UserRepository userRepository = new UserRepository();
+        var list = userRepository.UserHistory(user.Email);
+        foreach(var item in list)
+        {
+            Console.WriteLine(item);
+        }
+        return list;
+    }
 }
