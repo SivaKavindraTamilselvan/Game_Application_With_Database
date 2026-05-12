@@ -1,36 +1,45 @@
 ﻿using WordGame.GameFlow;
 using WordGame.Service;
+using DotNetEnv;
+
 public class Program
 {
     static void Main(string[] args)
     {
+        Env.Load();
         int choice;
-        while (!int.TryParse(Console.ReadLine(), out choice) || choice < 2 || choice > 0)
+        Console.WriteLine("---------------------------------------------");
+        Console.WriteLine("Enter 1 To Register User");
+        Console.WriteLine("Enter 2 For Login And Play The Game");
+        Console.WriteLine("---------------------------------------------");
+        while (!int.TryParse(Console.ReadLine(), out choice) || choice > 2 || choice < 0)
         {
             Console.WriteLine("Enter Valid Input");
         }
-        while (true)
-        {
-            switch (choice)
-            {
-                case 1:
-                    {
-                        Console.WriteLine("Register Panel");
-                        UserService user = new UserService();
-                        user.AddUser();
 
-                        break;
-                    }
-                case 2:
-                    {
-                        Console.WriteLine("Login Panel");
-                        break;
-                    }
-            }
+        switch (choice)
+        {
+            case 1:
+                {
+                    Console.WriteLine("Register Panel");
+                    UserService user = new UserService();
+                    user.AddUser();
+                    break;
+                }
+            case 2:
+                {
+                    Console.WriteLine("Login Panel and Play the Game");
+                    break;
+                }
+            case 0:
+                {
+                    return;
+                }
         }
 
-        User user = new User();
+        /*
         Game game = new Game();
         game.Start();
+        */
     }
 }

@@ -1,3 +1,4 @@
+using Npgsql;
 namespace WordGame.DBContext;
 
 public class DataConnection

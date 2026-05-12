@@ -6,16 +6,10 @@ public class UserService
     {
         Console.WriteLine("Enter the Used Details To Add User");
         Console.WriteLine("Enter Your Name");
-        string name = Console.ReadLine() ?? string.Empty();
+        string name = Console.ReadLine() ?? string.Empty;
         Console.WriteLine("Enter Your Email");
-        string email = Console.ReadLine() ?? string.Empty();
+        string email = Console.ReadLine() ?? string.Empty;
         Console.WriteLine("Enter Your Password");
-        string password = Console.ReadLine() ?? string.Empty();
-        UserRepository user = new UserRepository();
-        Users users = new Users();
-        users.Email = email;
-        users.Name = name;
-        users.Password = password;
-        user.Add()
+        string password = Console.ReadLine() ?? string.Empty;
     }
 }
