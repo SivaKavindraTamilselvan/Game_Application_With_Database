@@ -6,6 +6,7 @@ using WordGame.Exceptions;
 using WordGame.WordGenerator;
 using WordGame.Repositories;
 using WordGame.Functions;
+using WordGame.Interfaces;
 
 public class Program
 {
@@ -18,7 +19,11 @@ public class Program
 
         UserService userService = new UserService(userRepository);
 
-        UserFunctions userFunctions = new UserFunctions(userService);
+        GameRepository gameRepository = new GameRepository();
+
+        GameService gameService = new GameService(gameRepository);
+
+        UserFunctions userFunctions = new UserFunctions(userService,gameService);
 
         while (true)
         {

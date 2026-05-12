@@ -6,7 +6,6 @@ namespace WordGame.Functions;
 
 public partial class UserFunctions
 {
-    Game game = new Game();
     public void UserChoiceFunction(Users user)
     {
         while (true)

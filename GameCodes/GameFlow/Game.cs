@@ -7,10 +7,11 @@ using WordGame.IO;
 using WordGame.Models;
 using WordGame.Interfaces;
 using WordGame.Repositories;
+using WordGame.Service;
 
 namespace WordGame.GameFlow;
 
-public class Game
+public partial class Game
 {
     private int max_attempt = 6;
     private string secretWord = "";
@@ -24,7 +25,13 @@ public class Game
     Score scoresCalucaltor = new Score();
     //for console statements
     InputsAndOutputs inputsAndOutputs = new InputsAndOutputs();
+    protected readonly GameService gameService;
 
+    public Game (GameService _gameService)
+    {
+        gameService = _gameService;
+    }
+    
     public void Start(Users user)
     {
 
@@ -36,12 +43,7 @@ public class Game
             int score = 0;
             int attempt = 1;
 
-            IRepository<int, GameModel> gameRepo = new GameRepository();
-            GameModel gameModel = new GameModel();
-            gameModel.userId = user.userId;
-            gameModel.max_attempt = max_attempt;
-            gameModel.hiddenWord = secretWord;
-            var game = gameRepo.Create(gameModel);
+            var game = AddGameService(user);
 
             Console.WriteLine(game);
             //to check if won/lost
