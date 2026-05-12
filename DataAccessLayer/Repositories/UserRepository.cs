@@ -8,24 +8,32 @@ namespace WordGame.DataAccess;
 
 public class UserRepository : AbstractRepository<int, Users>
 {
-    //DataConnection dataConnection = new DataConnection();
     NpgsqlConnection connection;
     public UserRepository()
     {
         connection = dataConnection.GetConnection();
     }
-
     public override Users Create(Users item)
     {
-        string query = $"INSERT INTO Users(Name,Email,Password,Role) VALUES ('{item.Name}','{item.Email}','{item.Password}','{item.Role}')";
+        string query = $"INSERT INTO Users(Name,Email,Password,Role) VALUES ('{item.Name}','{item.Email}','{item.Password}','{item.Role}') RETURNING *";
         NpgsqlCommand command = new NpgsqlCommand(query, connection);
         try
         {
+            //connection is opened
             connection.Open();
-            int result = command.ExecuteNonQuery();
-            if(result>0)
+            //the reader execute the sql query
+            NpgsqlDataReader reader = command.ExecuteReader();
+            if (reader.Read())
             {
-                Console.WriteLine("User Added Successfully");
+                //new object is created
+                Users createdUser = new Users();
+                createdUser.userId = Convert.ToInt32(reader["userId"]);
+                createdUser.Email = reader["Email"].ToString() ?? "";
+                createdUser.Role = reader["Role"].ToString() ?? "";
+                createdUser.Name = reader["Name"].ToString() ?? "";
+                createdUser.Password = reader["Password"].ToString() ?? "";
+                Console.WriteLine("User created Successfully");
+                return createdUser;
             }
         }
         catch (Exception ex)

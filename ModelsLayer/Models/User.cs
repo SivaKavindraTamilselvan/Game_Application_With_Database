@@ -8,4 +8,8 @@ public class Users
     public string Password {get;set;} = "";
     public string Role {get;set;} = "";
 
+    public override string ToString()
+    {
+        return $"User Id : {userId}\nName : {Name}\nEmail : {Email}\nPassword : {Password}\nRole : {Role}";
+    }
 }
