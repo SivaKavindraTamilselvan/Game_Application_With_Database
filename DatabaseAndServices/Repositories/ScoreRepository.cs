@@ -32,7 +32,7 @@ public class ScoreRepository : AbstractRepository<int, ScoresModel>
                 createdScore.gameId = Convert.ToInt32(reader["gameId"]);
                 createdScore.userId = Convert.ToInt32(reader["userId"]);
                 createdScore.createdAt = Convert.ToDateTime(reader["createdAt"]);
-                createdScore.status = reader["status"].ToString();
+                createdScore.status = reader["status"].ToString() ?? ""; 
                 createdScore.score = Convert.ToInt32(reader["score"]);
                 createdScore.attempt = Convert.ToInt32(reader["attempt"]);
                 Console.WriteLine("Game History created Successfully");

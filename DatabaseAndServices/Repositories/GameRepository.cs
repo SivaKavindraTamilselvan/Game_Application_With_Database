@@ -31,7 +31,7 @@ public class GameRepository : AbstractRepository<int, GameModel>
                 createdGame.userId = Convert.ToInt32(reader["userId"]);
                 createdGame.gameId = Convert.ToInt32(reader["gameId"]);
                 createdGame.createdAt = Convert.ToDateTime(reader["createdAt"]);
-                createdGame.hiddenWord = reader["hiddenword"].ToString();
+                createdGame.hiddenWord = reader["hiddenword"].ToString() ?? "";
                 createdGame.max_attempt = Convert.ToInt32(reader["max_attempt"]);
                 Console.WriteLine("Game created Successfully");
                 return createdGame;
