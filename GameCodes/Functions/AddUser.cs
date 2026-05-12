@@ -24,6 +24,11 @@ public class UserFunctions
 
         Console.WriteLine("Enter Your Email");
         string email = inputsCheck.EmailInputs();
+        if(userService.GetUsersByEmail(email) != null)
+        {
+            Console.WriteLine("User with this Email Already Regsitered");
+            return;
+        }
 
         Console.WriteLine("Enter Your Password");
         string password = inputsCheck.PasswordInputs();

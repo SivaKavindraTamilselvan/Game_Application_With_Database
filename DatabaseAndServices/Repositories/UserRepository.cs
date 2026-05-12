@@ -48,6 +48,38 @@ public class UserRepository : AbstractRepository<int, Users>
         return null!;
     }
 
+    public Users? GetUsersByEmail(string email)
+    {
+        string query = $"SELECT * FROM Users WHERE Email = '{email}'";
+        NpgsqlCommand command = new NpgsqlCommand(query, connection);
+        try
+        {
+            //connection is opened
+            connection.Open();
+            //the reader execute the sql query
+            NpgsqlDataReader reader = command.ExecuteReader();
+            if (reader.Read())
+            {
+                //new object is created
+                Users user = new Users();
+                user.userId = Convert.ToInt32(reader["userId"]);
+                user.Email = reader["Email"].ToString() ?? "";
+                user.Role = reader["Role"].ToString() ?? "";
+                user.Name = reader["Name"].ToString() ?? "";
+                user.Password = reader["Password"].ToString() ?? "";
+                return user;
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+        finally
+        {
+            connection.Close();
+        }
+        return null;
+    }
     public Users? LoginUser(string email, string password)
     {
         string query = $"SELECT * FROM Users WHERE Email = '{email}' AND Password = '{password}'";
