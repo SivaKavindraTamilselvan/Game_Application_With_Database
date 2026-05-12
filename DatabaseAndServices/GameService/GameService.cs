@@ -18,13 +18,11 @@ public class GameService
     public GameModel AddGameService(GameModel gameModel)
     {
         var createdGame = gameRepository.Create(gameModel);
-        Console.WriteLine(createdGame);
         return createdGame;
     }
     public WordGuessHistory AddWordGuessService(WordGuessHistory wordGuessHistory)
     {
         var history = wordGuessHistoryRepository.Create(wordGuessHistory);
-        Console.WriteLine(history);
         return history;
     }
 }

@@ -20,7 +20,7 @@ public class Program
         UserService userService = new UserService(userRepository);
 
         GameRepository gameRepository = new GameRepository();
-        
+
         WordGuessHistoryRepository wordGuessHistoryRepository = new WordGuessHistoryRepository();
 
         GameService gameService = new GameService(gameRepository, wordGuessHistoryRepository);
@@ -71,10 +71,5 @@ public class Program
                 Console.WriteLine(ex.Message);
             }
         }
-
-        /*
-        Game game = new Game();
-        game.Start();
-        */
     }
 }
