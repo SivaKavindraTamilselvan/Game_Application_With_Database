@@ -3,6 +3,7 @@ using WordGame.DBContext;
 using WordGame.DataAccess;
 using Npgsql;
 using System.Data;
+using WordGame.Exceptions;
 
 namespace WordGame.DataAccess;
 

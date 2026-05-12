@@ -1,6 +1,9 @@
 ﻿using WordGame.GameFlow;
 using WordGame.Service;
 using DotNetEnv;
+using WordGame.Models;
+using WordGame.Exceptions;
+
 
 public class Program
 {
@@ -16,27 +19,39 @@ public class Program
         {
             Console.WriteLine("Enter Valid Input");
         }
-
-        switch (choice)
+        try
         {
-            case 1:
-                {
-                    Console.WriteLine("Register Panel");
-                    UserService user = new UserService();
-                    user.AddUser();
-                    break;
-                }
-            case 2:
-                {
-                    Console.WriteLine("Login Panel and Play the Game");
-                    UserService user = new UserService();
-                    user.LoginUser();
-                    break;
-                }
-            case 0:
-                {
-                    return;
-                }
+            switch (choice)
+            {
+                case 1:
+                    {
+                        Console.WriteLine("Register Panel");
+                        UserService user = new UserService();
+                        user.AddUser();
+                        break;
+                    }
+                case 2:
+                    {
+                        Console.WriteLine("Login Panel and Play the Game");
+                        UserService user = new UserService();
+                        var loginUser = user.LoginUser();
+                        if (loginUser == null)
+                        {
+                            throw new UserNotFoundException();
+                        }
+                        Game game = new Game();
+                        game.Start();
+                        break;
+                    }
+                case 0:
+                    {
+                        return;
+                    }
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
         }
 
         /*

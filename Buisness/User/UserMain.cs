@@ -35,7 +35,11 @@ public class UserService
     public Users? LoginUser()
     {
         UserRepository userRepository = new UserRepository();
-        Users user = userRepository.LoginUser("sivakavindra@gmail.com","siva");
+        var user = userRepository.LoginUser("sivakavin@gmail.com","siva");
+        if(user == null)
+        {
+            return null;
+        }
         Console.WriteLine(user);
         return user;
     }
