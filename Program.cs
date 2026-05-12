@@ -23,7 +23,9 @@ public class Program
 
         WordGuessHistoryRepository wordGuessHistoryRepository = new WordGuessHistoryRepository();
 
-        GameService gameService = new GameService(gameRepository, wordGuessHistoryRepository);
+        ScoreRepository scoreRepo = new ScoreRepository();
+
+        GameService gameService = new GameService(gameRepository, wordGuessHistoryRepository, scoreRepo);
 
         UserFunctions userFunctions = new UserFunctions(userService, gameService);
 
