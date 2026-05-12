@@ -32,4 +32,11 @@ public class UserService
         Users createduser = userRepository.Create(users);
         Console.WriteLine(createduser);
     }
+    public Users? LoginUser()
+    {
+        UserRepository userRepository = new UserRepository();
+        Users user = userRepository.LoginUser("sivakavindra@gmail.com","siva");
+        Console.WriteLine(user);
+        return user;
+    }
 }

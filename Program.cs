@@ -29,6 +29,8 @@ public class Program
             case 2:
                 {
                     Console.WriteLine("Login Panel and Play the Game");
+                    UserService user = new UserService();
+                    user.LoginUser();
                     break;
                 }
             case 0:
