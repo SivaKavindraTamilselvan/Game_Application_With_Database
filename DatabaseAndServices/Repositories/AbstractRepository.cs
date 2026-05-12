@@ -1,8 +1,9 @@
 using WordGame.DBContext;
 using WordGame.Models;
 using Npgsql;
+using WordGame.Interfaces;
 
-namespace WordGame.DataAccess;
+namespace WordGame.Repositories;
 
 public abstract class AbstractRepository<K, T> : IRepository<K, T> where T : class ,new () where K : notnull
 {

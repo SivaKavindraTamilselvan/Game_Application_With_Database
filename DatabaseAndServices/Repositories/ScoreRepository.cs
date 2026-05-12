@@ -1,11 +1,11 @@
 using WordGame.Models;
 using WordGame.DBContext;
-using WordGame.DataAccess;
 using Npgsql;
 using System.Data;
 using WordGame.Exceptions;
+using WordGame.Interfaces;
 
-namespace WordGame.DataAccess;
+namespace WordGame.Repositories;
 
 public class ScoreRepository : AbstractRepository<int, ScoresModel>
 {

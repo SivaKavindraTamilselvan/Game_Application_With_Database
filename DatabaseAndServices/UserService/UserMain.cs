@@ -1,6 +1,7 @@
 using WordGame.IO;
 using WordGame.DataAccess;
 using WordGame.Models;
+using WordGame.Interfaces;
 
 namespace WordGame.Service;
 

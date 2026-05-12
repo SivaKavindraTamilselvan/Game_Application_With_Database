@@ -1,4 +1,4 @@
-namespace WordGame.DataAccess;
+namespace WordGame.Interfaces;
 
 public interface IRepository<K, T> where T : class
 {
