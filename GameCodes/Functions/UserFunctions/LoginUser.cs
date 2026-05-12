@@ -21,7 +21,7 @@ public partial class UserFunctions
         Console.WriteLine("Enter Your Password");
         string password = inputsCheck.PasswordInputs();
 
-        Users loginUser = userService.LoginUser(email, password);
+        var loginUser = userService.LoginUser(email, password);
         return loginUser;
     }
 }

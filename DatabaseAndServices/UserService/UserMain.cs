@@ -25,7 +25,7 @@ public class UserService
     }
     public Users? LoginUser(string email,string password)
     {
-        var user = userRepository.LoginUser("sivakavindra@gmail.com","siva");
+        var user = userRepository.LoginUser(email,password);
         if(user == null)
         {
             return null;
