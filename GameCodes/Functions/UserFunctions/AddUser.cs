@@ -1,18 +1,10 @@
-using WordGame.IO;
-using WordGame.Service;
 using WordGame.Models;
+using WordGame.Exceptions;
 
 namespace WordGame.Functions;
 
-public class UserFunctions
+public partial class UserFunctions
 {
-    protected readonly UserService userService;
-    InputsCheck inputsCheck = new InputsCheck();
-    public UserFunctions(UserService _userService)
-    {
-        userService = _userService;
-    }
-    
     public void AddUser()
     {
 
@@ -24,10 +16,9 @@ public class UserFunctions
 
         Console.WriteLine("Enter Your Email");
         string email = inputsCheck.EmailInputs();
-        if(userService.GetUsersByEmail(email) != null)
+        if (userService.GetUsersByEmail(email) != null)
         {
-            Console.WriteLine("User with this Email Already Regsitered");
-            return;
+            throw new UserRegisteredException();
         }
 
         Console.WriteLine("Enter Your Password");

@@ -23,7 +23,7 @@ public class UserService
         Console.WriteLine(createduser);
         return createduser;
     }
-    public Users? LoginUser()
+    public Users? LoginUser(string email,string password)
     {
         var user = userRepository.LoginUser("sivakavindra@gmail.com","siva");
         if(user == null)

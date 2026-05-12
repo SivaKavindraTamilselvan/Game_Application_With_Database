@@ -44,16 +44,18 @@ public class Program
                         }
                     case 2:
                         {
-                            WordProvider provider = new WordProvider();
+                            //WordProvider provider = new WordProvider();
                             Console.WriteLine("Login Panel and Play the Game");
-                            var loginUser = userService.LoginUser();
-                            if (loginUser == null)
+                            var user = userFunctions.LoginUser();
+                            if(user == null)
                             {
                                 throw new UserNotFoundException();
                             }
-                            userService.UserHistory(loginUser);
+                            //var loginUser = userService.LoginUser();
+                            
+                            //userService.UserHistory(loginUser);
                             Game game = new Game();
-                            game.Start(loginUser);
+                            //game.Start(loginUser);
                             break;
                         }
                     case 0:
