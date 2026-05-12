@@ -3,6 +3,7 @@ using WordGame.Service;
 using DotNetEnv;
 using WordGame.Models;
 using WordGame.Exceptions;
+using WordGame.WordGenerator;
 
 
 public class Program
@@ -32,6 +33,7 @@ public class Program
                     }
                 case 2:
                     {
+                        WordProvider provider = new WordProvider();
                         Console.WriteLine("Login Panel and Play the Game");
                         UserService user = new UserService();
                         var loginUser = user.LoginUser();
