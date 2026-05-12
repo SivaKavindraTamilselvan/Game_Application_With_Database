@@ -323,3 +323,13 @@ GameCodes
 - hard level (max attempt - 4)
 
 ## DATABASE
+
+
+<img width="3024" height="1964" alt="image" src="https://github.com/user-attachments/assets/1e1da3b9-fc52-4ee2-87c2-374a41f0ab59" />
+<img width="3024" height="1964" alt="image" src="https://github.com/user-attachments/assets/8f475888-d696-47f5-b1c9-4613989d3ad6" />
+<img width="3024" height="1964" alt="image" src="https://github.com/user-attachments/assets/47616acb-6181-4360-91fe-4695219428b7" />
+<img width="3024" height="1964" alt="image" src="https://github.com/user-attachments/assets/af873c6e-ecb5-4d2c-8713-9a5c73e8180a" />
+<img width="3024" height="1964" alt="image" src="https://github.com/user-attachments/assets/4ef3af60-a873-4e02-9be0-75f1732c1b47" />
+
+
+
