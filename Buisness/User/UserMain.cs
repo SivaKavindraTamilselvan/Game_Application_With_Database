@@ -1,7 +1,11 @@
+using WordGame.Inputs;
+
 namespace WordGame.Service;
 
 public class UserService
 {
+    InputsCheck inputsCheck = new InputsCheck();
+    
     public void AddUser()
     {
         Console.WriteLine("Enter the Used Details To Add User");

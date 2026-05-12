@@ -1,6 +1,5 @@
-using NotificationAppBuisnessLayerLibrary.Validation;
-
-namespace NotificationAppBuisnessLayer.Inputs;
+using WordGame.Validation;
+namespace WordGame.Inputs;
 
 public class InputsCheck
 {
@@ -25,50 +24,6 @@ public class InputsCheck
             }
         }
     }
-    public string PhoneNumberInputs()
-    {
-        string phone = Console.ReadLine() ?? string.Empty;
-        //loop until valid entry is entered
-        while (true)
-        {
-            try
-            {
-                //call validation function
-                PhoneNumberValidation.isValidPhoneNumber(phone);
-                return phone;
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine("Enter Valid Phone Number Again");
-                phone = Console.ReadLine() ?? "";
-            }
-        }
-    }
-
-    public string MessageInputs(string receiver, string service)
-    {
-        Console.WriteLine($"Enter Message To Send To {receiver}");
-
-        string message = Console.ReadLine() ?? string.Empty;
-        //loop until valid entry is entered
-        while (true)
-        {
-            try
-            {
-                //call validation function
-                MessageValidation.ValidateMessage(message, service);
-                return message;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine("Enter Valid Message Again");
-                message = Console.ReadLine() ?? "";
-            }
-        }
-    }
-
     public int IdInputs()
     {
         Console.WriteLine("Enter Id");
