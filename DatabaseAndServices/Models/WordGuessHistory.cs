@@ -1,5 +1,7 @@
 namespace WordGame.Models;
 
+// store all the guessed words of each game of the user
+// used to maintain the history
 public class WordGuessHistory
 {
     public int historyId {get;set;}

@@ -11,6 +11,6 @@ public class GameModel
 
     public override string ToString()
     {
-        return$"Game Id : {gameId}\nUser Id : {userId}\nHiddenWord : {hiddenWord}\nMaximum Attemp : {max_attempt}";
+        return$"Game Id : {gameId}\nUser Id : {userId}\nHiddenWord : {hiddenWord}\nMaximum Attemp : {max_attempt}\nCreatedAt : {createdAt}";
     }
 }

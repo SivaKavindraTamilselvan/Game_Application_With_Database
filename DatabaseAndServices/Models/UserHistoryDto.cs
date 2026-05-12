@@ -1,5 +1,8 @@
 namespace WordGame.Models;
 
+// not a table structure that is stored
+// it is used only to get the datas of history by using of join query of all tables
+// not a seperate table
 public class UserHistoryDto
 {
     public int userId { get; set; }

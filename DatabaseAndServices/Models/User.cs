@@ -1,5 +1,6 @@
 namespace WordGame.Models;
 
+// used for the users registraton
 public class Users
 {
     public int userId {get;set;}

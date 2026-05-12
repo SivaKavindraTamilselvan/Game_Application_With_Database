@@ -1,5 +1,8 @@
 namespace WordGame.Models;
 
+// store the words
+// so for the words addition is not done 
+// used to store the words that are stored in the list for random generation
 public class Words
 {
     public int wordId {get;set;}
