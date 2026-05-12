@@ -42,7 +42,7 @@ public class Program
                             throw new UserNotFoundException();
                         }
                         Game game = new Game();
-                        game.Start();
+                        game.Start(loginUser);
                         break;
                     }
                 case 0:

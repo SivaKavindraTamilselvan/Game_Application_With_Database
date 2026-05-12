@@ -22,7 +22,7 @@ public class Game
     //for console statements
     InputsAndOutputs inputsAndOutputs = new InputsAndOutputs();
 
-    public void Start()
+    public void Start(Users user)
     {
         while (true)
         {

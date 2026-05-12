@@ -3,7 +3,7 @@ namespace WordGame.Models;
 public class WordGuessHistory
 {
     public int historyId {get;set;}
-    public int scoreId {get;set;}
+    public int gameId {get;set;}
     public int userId {get;set;}
     public string guessedWord {get;set;} = "";
     public string hiddenWord {get;set;} = "";
