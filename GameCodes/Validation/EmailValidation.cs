@@ -13,7 +13,7 @@ public class EmailValidation
         //regex pattern
         string pattern=@"^[^@\s]+@[^@\s]+\.[^@\s]+$";
         if(!Regex.IsMatch(checkEmail, pattern, RegexOptions.IgnoreCase)){
-            throw new EmailException("Email Entered Is Not Valid. Your Account is Not Created");
+            throw new EmailException();
         }        
     }
 }

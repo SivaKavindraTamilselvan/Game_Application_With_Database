@@ -5,7 +5,8 @@ using WordGame.Feedback;
 using WordGame.Scores;
 using WordGame.IO;
 using WordGame.Models;
-using WordGame.DataAccess;
+using WordGame.Interfaces;
+using WordGame.Repositories;
 
 namespace WordGame.GameFlow;
 

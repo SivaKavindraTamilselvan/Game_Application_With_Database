@@ -24,6 +24,45 @@ public class InputsCheck
             }
         }
     }
+    public string NameInputs()
+    {
+        string name = Console.ReadLine() ?? string.Empty;
+        while(true)
+        {
+            try
+            {
+                //call validation function
+                NameValidation.isValidName(name);
+                return name;
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine("Enter Valid Name Again");
+                name = Console.ReadLine() ?? "";
+            }
+        }
+    }
+
+    public string PasswordInputs()
+    {
+        string password = Console.ReadLine() ?? string.Empty;
+        while(true)
+        {
+            try
+            {
+                //call validation function
+                PasswordValidation.isValidPassword(password);
+                return password;
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine("Enter Valid Password Again");
+                password = Console.ReadLine() ?? "";
+            }
+        }
+    }
     public int IdInputs()
     {
         Console.WriteLine("Enter Id");

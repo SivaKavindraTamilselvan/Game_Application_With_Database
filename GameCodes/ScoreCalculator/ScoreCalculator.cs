@@ -1,5 +1,6 @@
 using WordGame.Models;
-using WordGame.DataAccess;
+using WordGame.Interfaces;
+using WordGame.Repositories;
 
 namespace WordGame.Scores;
 

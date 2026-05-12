@@ -1,5 +1,7 @@
 using WordGame.Models;
-using WordGame.DataAccess;
+using WordGame.Repositories;
+using WordGame.Interfaces;
+
 namespace WordGame.WordGenerator
 {
     public class WordProvider
