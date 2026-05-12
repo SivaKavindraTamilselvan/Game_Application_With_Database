@@ -4,7 +4,8 @@ using WordGame.WordGenerator;
 using WordGame.Feedback;
 using WordGame.Scores;
 using WordGame.IO;
-
+using WordGame.Models;
+using WordGame.DataAccess;
 namespace WordGame.GameFlow;
 
 public class Game
@@ -24,6 +25,7 @@ public class Game
 
     public void Start(Users user)
     {
+
         while (true)
         {
             secretWord = generator.GetRandomWord();
@@ -31,6 +33,15 @@ public class Game
 
             int score = 0;
             int attempt = 1;
+
+            IRepository<int, GameModel> gameRepo = new GameRepository();
+            GameModel gameModel = new GameModel();
+            gameModel.userId = user.userId;
+            gameModel.max_attempt = max_attempt;
+            gameModel.hiddenWord = secretWord;
+            var game = gameRepo.Create(gameModel);
+
+            Console.WriteLine(game);
             //to check if won/lost
             bool won = false;
             //list to store previusly guessed words
@@ -61,7 +72,7 @@ public class Game
                     //conversion to upper to avoid different cases
                     guessed_word = guessed_word.ToUpper();
                     validator.ValidateFunction(guessed_word, guessed_words);
-                    
+
                     //print the feedback and check
                     string actual = feedback.GetFeedback(guessed_word, secretWord);
                     feedback.PrintColoredFeedback(guessed_word, actual);
@@ -94,7 +105,7 @@ public class Game
                     continue;
                 }
             }
-            scoresCalucaltor.ScoreCaluculator(attempt, won, score, max_attempt,secretWord);
+            scoresCalucaltor.ScoreCaluculator(attempt, won, score, max_attempt, secretWord);
 
             //replay option along with three different levels reducing the number of attempts
             Console.WriteLine("Enter 1 To Replay. Or any other input to exit");
