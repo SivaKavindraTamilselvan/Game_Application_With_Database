@@ -5,6 +5,7 @@ public class UserService
     public void AddUser()
     {
         Console.WriteLine("Enter the Used Details To Add User");
+        Console.WriteLine();
         Console.WriteLine("Enter Your Name");
         string name = Console.ReadLine() ?? string.Empty;
         Console.WriteLine("Enter Your Email");
