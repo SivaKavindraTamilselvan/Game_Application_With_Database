@@ -1,8 +1,11 @@
+using WordGame.Models;
+using WordGame.DataAccess;
+
 namespace WordGame.Scores;
 
 public class Score
 {
-    public void ScoreCaluculator(int attempt, bool won, int score, int max_attempt, string secretWord)
+    public void ScoreCaluculator(int attempt, bool won, int score, int max_attempt, string secretWord,int gameId,int userId)
     {
         Console.WriteLine();
         Console.WriteLine();
@@ -37,5 +40,15 @@ public class Score
         Console.WriteLine();
         Console.WriteLine();
         Console.ResetColor();
+
+        ScoresModel scores = new ScoresModel();
+        scores.gameId = gameId;
+        scores.userId = userId;
+        scores.score = score;
+        scores.attempt = attempt;
+        scores.status = won ? "won" : "lost";
+        IRepository<int, ScoresModel> scoreRepo = new ScoreRepository();
+        var scoreresul = scoreRepo.Create(scores);
+        Console.WriteLine(scoreresul);
     }
 }

@@ -1,7 +1,7 @@
 
 namespace WordGame.Models;
 
-public class Scores
+public class ScoresModel
 {
     public int scoreId {get;set;}
     public int gameId{get;set;}

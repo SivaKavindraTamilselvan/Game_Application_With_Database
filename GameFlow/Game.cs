@@ -112,7 +112,7 @@ public class Game
                     continue;
                 }
             }
-            scoresCalucaltor.ScoreCaluculator(attempt, won, score, max_attempt, secretWord);
+            scoresCalucaltor.ScoreCaluculator(attempt, won, score, max_attempt, secretWord,game.gameId,user.userId);
 
             //replay option along with three different levels reducing the number of attempts
             Console.WriteLine("Enter 1 To Replay. Or any other input to exit");

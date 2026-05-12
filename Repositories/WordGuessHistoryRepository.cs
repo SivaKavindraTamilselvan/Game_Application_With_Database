@@ -28,7 +28,7 @@ public class WordGuessHistoryRepository : AbstractRepository<int, WordGuessHisto
             {
                 //new object is created
                 WordGuessHistory createdGame = new WordGuessHistory();
-                createdGame.historyId = Convert.ToInt32(reader["historyiD"]);
+                createdGame.historyId = Convert.ToInt32(reader["historyId"]);
                 createdGame.gameId = Convert.ToInt32(reader["gameId"]);
                 createdGame.createdAt = Convert.ToDateTime(reader["createdAt"]);
                 createdGame.guessedWord = reader["guessedWord"].ToString();
