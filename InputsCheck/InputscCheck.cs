@@ -1,5 +1,5 @@
 using WordGame.Validation;
-namespace WordGame.Inputs;
+namespace WordGame.IO;
 
 public class InputsCheck
 {
