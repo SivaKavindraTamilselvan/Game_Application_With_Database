@@ -210,9 +210,65 @@ GameCodes
 
 ## SCREENSHOTS
 
-<img width="3024" height="1964" alt="image" src="https://github.com/user-attachments/assets/6cc2a1fd-355b-4578-83bb-cb853aa952b5" />
+<img width="3024" height="1964" alt="image" src="https://github.com/user-attachments/assets/85062445-80a8-4c60-a4b3-bd58bb3bf610" />
 
 - starting of the application
+
+<img width="3024" height="1964" alt="image" src="https://github.com/user-attachments/assets/b0967a3a-056d-49e1-8bf4-22329676f639" />
+
+- user email registration validaiton
+- allow only one user email for registration
+- no duplicates
+
+<img width="3024" height="1964" alt="image" src="https://github.com/user-attachments/assets/744b27df-03b1-441a-8143-da6e86aabf5e" />
+
+- validate the email address
+- throw exception
+
+<img width="3024" height="1964" alt="image" src="https://github.com/user-attachments/assets/36b3f44a-253f-4d95-93aa-1847c58f7212" />
+
+- password validation(bw 8 and 12 length)
+
+<img width="3024" height="1964" alt="image" src="https://github.com/user-attachments/assets/228154ef-0067-4677-9241-649cc3f9b0e1" />
+
+- user resgistered successfully
+
+<img width="3024" height="1964" alt="image" src="https://github.com/user-attachments/assets/4c49a1a2-3a6c-487e-856a-e9e138a2fb6a" />
+<img width="3024" height="1964" alt="image" src="https://github.com/user-attachments/assets/b8a67e47-86bd-4f95-92d4-d6e1a6659005" />
+
+- login password validations
+
+<img width="3024" height="1964" alt="image" src="https://github.com/user-attachments/assets/dc78ce01-193d-48ee-b3cf-1ea819785904" />
+<img width="3024" height="1964" alt="image" src="https://github.com/user-attachments/assets/17763228-d4de-41f1-a217-b7f80a1238d1" />
+<img width="3024" height="1964" alt="image" src="https://github.com/user-attachments/assets/ec88924f-914f-45db-b669-b52637dcad1f" />
+
+- clicked 1 for playing game
+- won the game
+  
+<img width="3024" height="1964" alt="image" src="https://github.com/user-attachments/assets/4752efa5-7e3b-4184-b389-f3c0d2e07271" />
+
+- replay the game
+- 3 levels
+- easy (6 attempt)
+- medium (5 attempt)
+- hard (4 attempt)
+
+<img width="3024" height="1964" alt="image" src="https://github.com/user-attachments/assets/cf9f8e97-75e2-43f7-bee8-ae0bb389936c" />
+
+- game lost output
+
+<img width="3024" height="1964" alt="image" src="https://github.com/user-attachments/assets/f05e7471-4cae-41c8-a072-afb9de87ac51" />
+<img width="3024" height="1964" alt="image" src="https://github.com/user-attachments/assets/c6a6c116-91d4-4ecd-8f66-7dc0541d6f96" />
+
+- user history along with the join query of all table
+- prints every details including the guessed words , score, status etc every details
+- query implemented in repository
+
+<img width="3024" height="1964" alt="image" src="https://github.com/user-attachments/assets/5777b5ac-0891-4e05-9492-48346582789b" />
+
+- check if user exists in database
+
+## PREVIOUS ASSIGNMENTS OUTPUS (ALL THESE FEATURES ARE ALSO THERE NO CHANGES)
 
 <img width="3024" height="1964" alt="image" src="https://github.com/user-attachments/assets/6897c99b-3591-4cee-b75a-56afaa23340f" />
 
@@ -265,3 +321,5 @@ GameCodes
 <img width="3024" height="1964" alt="image" src="https://github.com/user-attachments/assets/fdebe666-8b93-4625-a65a-0c38079cdced" />
 
 - hard level (max attempt - 4)
+
+## DATABASE
